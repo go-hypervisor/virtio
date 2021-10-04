@@ -1,2 +1,2 @@
-github.com/zchee/golang-sys v0.0.0-20211002173438-7d04f3b7eb76 h1:/fhrNDs+tdtBBUw3qCen8hq2C3cwFT9udyG2aT78Cm8=
-github.com/zchee/golang-sys v0.0.0-20211002173438-7d04f3b7eb76/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.0.0-20211004093028-2c5d950f24ef h1:fPxZ3Umkct3LZ8gK9nbk+DWDJ9fstZa2grBn+lWVKPs=
+golang.org/x/sys v0.0.0-20211004093028-2c5d950f24ef/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
