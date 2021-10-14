@@ -6,17 +6,16 @@ package vsock
 import (
 	"fmt"
 	"net"
-	"os"
 )
 
-// Conn represents a vsock connection which supported half close.
-type Conn interface {
-	net.Conn
+const (
+	// devVsock is the location of /dev/vsock.
+	// It is exposed on both the hypervisor and on virtual machines.
+	devVsock = "/dev/vsock"
 
-	FD() (f *os.File, err error)
-	CloseRead() error
-	CloseWrite() error
-}
+	// network is the vsock network.
+	network = "vsock"
+)
 
 // Addr represents a address of vsock endpoint.
 //
@@ -30,10 +29,15 @@ var _ net.Addr = (*Addr)(nil)
 
 // Network returns the network type for a Addr.
 func (Addr) Network() string {
-	return "vsock"
+	return network
 }
 
 // String returns a string representation of a Addr.
 func (a Addr) String() string {
 	return fmt.Sprintf("%08x.%08x", a.CID, a.Port)
+}
+
+// name returns a name of file for use with os.NewFile for Addr.
+func (a Addr) name() string {
+	return fmt.Sprintf("%s:%s", a.Network(), a.String())
 }
